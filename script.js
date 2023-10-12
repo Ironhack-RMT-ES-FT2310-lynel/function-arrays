@@ -321,3 +321,38 @@ console.log("despues del unshift", friends)
 friends.splice(3, 2, "Robert", "Emily")
 
 console.log("despues del splice", friends)
+
+
+
+// nota curiosa => borra todo
+friends.splice(0)
+console.log("despues del splice 0", friends)
+
+
+
+// loops en arrays
+
+let numbers = [ 10, 50, 80, "hola", "adios", 2, null, 30, true ]
+
+// debes remover todos los elmentos que no sean numeros
+// debes agregarlos a un array por separado
+
+let impostors = [];
+
+for ( let i = 0; i < numbers.length; i++ ) {
+
+  console.log(numbers[i])
+  if ( typeof numbers[i] !== "number" ) {
+    console.log("no es un numero")
+
+    // "hola"
+    impostors.push(numbers[i]) // agrega al array
+
+    numbers.splice(i, 1)
+    // Si borramos un elemento del array, debemos manipular el control del bucle
+    i--
+  }
+}
+
+console.log(numbers)
+console.log(impostors)
