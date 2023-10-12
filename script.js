@@ -247,3 +247,77 @@ console.log(onlyTwoFinalCities)
 
 let firstAndLastCity = [ cities[0], cities[cities.length - 1] ]
 console.log(firstAndLastCity)
+
+
+
+// Mutabilidad en arrays
+
+
+let string = "hola";
+
+console.log( string[0] )
+string[0] = "c";
+// no podemos mutar/cambiar el string
+
+console.log(string)
+
+
+let friends = ["Ross", "Rachel", "Phoebe", "Joey", "Monica", "Chandler"]
+
+friends[0] = "Mike";
+// los arrays son tipo de data mutable
+
+console.log(friends)
+
+friends.slice(1, 3)
+// ... pero no todos los metodos mutan el array original
+
+console.log(friends)
+
+
+
+// Metodos que SI modifican/mutan el array original
+
+// remover
+
+let removedElement1 = friends.pop() 
+// 1. remueve el ultimo elemento
+// 2. lo retorna 
+
+console.log("despues del pop", friends)
+console.log(removedElement1)
+
+friends.shift() 
+// 1. remueve el primer elemento
+// 2. lo retorna 
+
+console.log("despues del shift", friends)
+
+
+// agregar
+
+friends.push( "Janice" ) // agrega un elemento al final
+
+console.log("despues del push", friends)
+
+friends.unshift( "Gunther" ) // agrega un elemento al inicio
+
+console.log("despues del unshift", friends)
+
+
+
+// .splice()
+
+// SPLICE NO ES LO MISMO QUE SLICE
+// slice hace una copia
+// splice corta un segmento o añade elementos al array
+
+// argumentos:
+// 1. donde va a iniciar la modificacion
+// 2. cuantos elementos quieres borrar
+// 3 o mas. (Opcional) Que elementos quieres agregar en esa posición 
+
+
+friends.splice(3, 2, "Robert", "Emily")
+
+console.log("despues del splice", friends)
