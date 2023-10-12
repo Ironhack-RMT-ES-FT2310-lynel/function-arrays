@@ -356,3 +356,123 @@ for ( let i = 0; i < numbers.length; i++ ) {
 
 console.log(numbers)
 console.log(impostors)
+
+
+
+
+// Referencias
+
+
+let age1 = 44;
+let age2 = 44;
+
+console.log(age1 === age2)
+
+
+let agesArr1 = [20, 24, 36]; // ref. 1234
+let agesArr2 = [20, 24, 36]; // ref. 5555
+
+console.log( agesArr1 === agesArr2 ) // false
+
+
+console.log( agesArr1[0] === agesArr2[0] ) // true (se compara por su valor)
+
+
+let agesArr3 = agesArr1 // ref. 1234
+// lo de arriba no copia el array
+// asigna la misma referencia que el original
+
+console.log(agesArr1 === agesArr3) // true. misma ref
+
+console.log(agesArr3)
+
+agesArr3.pop()
+
+console.log("despues del pop de agesArr3", agesArr3)
+console.log("el original", agesArr1)
+
+
+let users = ["Alberto", "David", "Alicia"] // ref XZYW
+
+
+function removeFromArray( array ) {
+  // let array = users // ref XZYW
+  
+  console.log(array)
+  array.pop()
+  
+}
+
+removeFromArray(users)
+console.log(users)
+
+
+// .TODO JUNTO!
+
+
+/*
+
+crear una funcion que tome dos parametros
+1. Un array de nombres
+2. Una letra
+
+determina si todos los nombres empiezan con la letra indicada.
+
+["Alicia", "Alberto", "Diego", "Abraham"] "A" // false
+["Alicia", "Alberto", "Abraham"] "A" // true
+
+devueve un booleano
+
+*/
+
+
+// function allNamesCheck(namesArr, letter) {
+
+//   let counter = 0;
+
+//   for (let i = 0; i < namesArr.length; i++) {
+
+//     if ( namesArr[i][0] === letter ) {
+//       counter++
+//     }
+
+//   }
+
+//   // if (counter === namesArr.length) {
+//   //   return true
+//   // } else {
+//   //   return false
+//   // }
+//   return counter === namesArr.length
+
+// }
+
+function allNamesCheck(namesArr, letter) {
+
+  // clausula de guardia
+  if (namesArr.length === 0) {
+    // unica forma de detectar si un array está vacio
+    return "El array está vacio :("; // deten la funcion
+  }
+
+  let check = true;
+
+  for (let i = 0; i < namesArr.length; i++) {
+
+    if ( namesArr[i][0] !== letter ) {
+      check = false;
+      break; // si consiguen usa, deten el bucle y la respuesta seria false
+    }
+
+  }
+
+  return check
+
+}
+
+
+console.log( allNamesCheck(["Alicia", "Alberto", "Diego", "Abraham"], "A") ) // false
+console.log( allNamesCheck(["Alicia", "Alberto", "Abraham"], "A") ) // true
+console.log( allNamesCheck([], "B") ) // "El array está vacio :("
+
+
